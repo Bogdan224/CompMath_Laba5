@@ -82,9 +82,12 @@ namespace Lab5Smoothing
             plt.Grid.MajorLinePattern = LinePattern.Solid;
 
             // Сохранение графика
-            string filePath = $"C:\\Users\\{Environment.UserName}\\Downloads\\smoothing_results.png";
-            plt.SavePng(filePath, 800, 600);
-            Console.WriteLine($"\nГрафик сохранён в файл: {filePath}");
+            string path = $"C:\\Users\\{Environment.UserName}\\Downloads\\Laba5\\";
+            if(!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            string filename = "smoothing_results.png";
+            plt.SavePng(path + filename, 800, 600);
+            Console.WriteLine($"\nГрафик сохранён в файл: {path}{filename}");
 
             // 4. Вывод параметров тренда
             Console.WriteLine("\nРезультаты глобального МНК (полином 2 степени)");
